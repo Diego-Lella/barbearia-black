@@ -314,9 +314,10 @@ body {
 
 .hero-subtitle {
   color: var(--bone-dim);
-  font-size: 17px;
-  max-width: 460px;
-  margin-bottom: 32px;
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 34px;
 }
 
 .hero-actions {
