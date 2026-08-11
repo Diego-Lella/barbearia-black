@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barbearia Black — Corte e Barba de Precisão</title>
+<meta name="description" content="Barbearia Black: cortes de precisão, barba alinhada e atendimento premium. Agende seu horário pelo WhatsApp.">
+
+<!-- Projeto de demonstração (fictício). Substitua textos, contatos e imagens pelos dados reais do seu negócio. -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500&family=Inter:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ SPRITE DE ÍCONES (SVG) ============ -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 20l1.4-4.1A8 8 0 1 1 9 18.6L4 20Z"/>
+    <path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M9 9.2c0-.5.4-.9.9-.9h.4c.3 0 .6.2.7.5l.6 1.5c.1.3 0 .6-.2.8l-.5.5c.4 1 1.2 1.8 2.2 2.2l.5-.5c.2-.2.5-.3.8-.2l1.5.6c.3.1.5.4.5.7v.4c0 .5-.4.9-.9.9-3.3 0-6.5-3.2-6.5-6.5Z"/>
+  </symbol>
+  <symbol id="icon-scissors" viewBox="0 0 24 24">
+    <circle cx="6" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    <circle cx="6" cy="18" r="2.2" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    <path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" d="M7.8 7.6 20 18M7.8 16.4 20 6"/>
+  </symbol>
+  <symbol id="icon-chair" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M6 4v9a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V4M6 9h12M9 20v-2M15 20v-2"/>
+  </symbol>
+  <symbol id="icon-drop" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" d="M12 3c3 4 6 7.5 6 11a6 6 0 1 1-12 0c0-3.5 3-7 6-11Z"/>
+  </symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9-5.2-2.8-5.2 2.8 1-5.9-4.3-4.2 5.9-.8L12 3.5Z"/>
+  </symbol>
+  <symbol id="icon-pin" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" d="M12 21s7-6.5 7-11.5a7 7 0 1 0-14 0C5 14.5 12 21 12 21Z"/>
+    <circle cx="12" cy="9.5" r="2.3" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  </symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8.3" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    <path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" d="M12 7.5V12l3 2"/>
+  </symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/>
+  </symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M5 5l14 14M19 5 5 19"/>
+  </symbol>
+  <symbol id="icon-chevron" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/>
+  </symbol>
+  <symbol id="icon-razor" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" d="M4 14 15 3l5 5-9 9-5 1 1-5Z"/>
+    <path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" d="M13 5l5 5"/>
+  </symbol>
+  <symbol id="icon-instagram" viewBox="0 0 24 24">
+    <rect x="4" y="4" width="16" height="16" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    <circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    <circle cx="16.6" cy="7.4" r="0.9" fill="currentColor"/>
+  </symbol>
+  <symbol id="icon-facebook" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" d="M14.5 21v-7h2.3l.4-3H14.5V9.1c0-.9.3-1.5 1.6-1.5H17V5c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8V11H8.7v3h2.4v7Z"/>
+  </symbol>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="#top" class="logo">Barbearia <span>Black</span></a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#servicos">Serviços</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#local">Localização</a>
+    </nav>
+
+    <a class="btn btn-primary btn-sm whatsapp-btn" data-message="hero" href="#" target="_blank" rel="noopener">
+      <svg class="icon" width="18" height="18"><use href="#icon-whatsapp"/></svg>
+      Agendar
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
+      <svg class="icon" width="24" height="24"><use href="#icon-menu"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Barbearia Black · Corte e barba de precisão</p>
+        <h1 class="hero-title">Saia diferente<br>de como entrou.</h1>
+        <p class="hero-subtitle">Corte na medida certa, barba alinhada e um atendimento que presta atenção em detalhe. Marque seu horário em poucos segundos, sem ligação e sem fila.</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg whatsapp-btn" data-message="hero" href="#" target="_blank" rel="noopener">
+            <svg class="icon" width="20" height="20"><use href="#icon-whatsapp"/></svg>
+            Agendar pelo WhatsApp
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#servicos">Ver serviços e preços</a>
+        </div>
+
+        <p class="hero-microcopy">
+          <svg class="icon icon-sm" width="14" height="14"><use href="#icon-clock"/></svg>
+          Resposta rápida · Horário marcado · Sem enrolação
+        </p>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="hero-emblem">
+          <div class="fade-rings"></div>
+          <svg class="icon hero-emblem-icon" width="72" height="72"><use href="#icon-razor"/></svg>
+        </div>
+        <div class="hero-float-card">
+          <svg class="icon" width="20" height="20"><use href="#icon-clock"/></svg>
+          <div>
+            <strong>Horário marcado</strong>
+            <span>Sem tempo perdido esperando</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- linha-fade (elemento de assinatura) -->
+  <div class="fade-divider" aria-hidden="true"></div>
+
+  <!-- ============ 2. BENEFÍCIOS ============ -->
+  <section class="section benefits">
+    <div class="wrap">
+      <div class="benefits-grid">
+        <article class="benefit-card reveal">
+          <svg class="icon icon-lg" width="30" height="30"><use href="#icon-scissors"/></svg>
+          <h3>Profissionais experientes</h3>
+          <p>Equipe treinada em técnicas de corte e barba, sempre de olho no que funciona de verdade — não só no que está na moda.</p>
+        </article>
+        <article class="benefit-card reveal">
+          <svg class="icon icon-lg" width="30" height="30"><use href="#icon-chair"/></svg>
+          <h3>Atendimento personalizado</h3>
+          <p>Cada corte é pensado pro seu tipo de rosto, seu estilo e sua rotina — a conversa antes da tesoura faz toda a diferença.</p>
+        </article>
+        <article class="benefit-card reveal">
+          <svg class="icon icon-lg" width="30" height="30"><use href="#icon-drop"/></svg>
+          <h3>Ambiente premium</h3>
+          <p>Espaço cuidado do início ao fim: do café enquanto você espera ao acabamento final na navalha.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. SERVIÇOS ============ -->
+  <section id="servicos" class="section services">
+    <div class="wrap">
+      <p class="eyebrow center">O que fazemos</p>
+      <h2 class="section-title center">Serviços &amp; valores</h2>
+      <p class="section-subtitle center">Preços claros, sem surpresa na hora de pagar.</p>
+
+      <div class="services-grid">
+
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <h3>Corte Masculino</h3>
+            <p class="price"><span>R$</span>40</p>
+          </div>
+          <p class="service-desc">Corte na tesoura ou máquina, com acabamento em navalha e finalização.</p>
+          <a class="btn btn-outline btn-block whatsapp-btn" data-message="corte" href="#" target="_blank" rel="noopener">Agendar este serviço</a>
+        </article>
+
+        <article class="service-card service-card-highlight reveal">
+          <span class="service-tag">Mais pedido</span>
+          <div class="service-card-top">
+            <h3>Corte + Barba</h3>
+            <p class="price"><span>R$</span>60</p>
+          </div>
+          <p class="service-desc">O combo completo: corte e barba alinhados no mesmo horário, sem pressa.</p>
+          <a class="btn btn-primary btn-block whatsapp-btn" data-message="combo" href="#" target="_blank" rel="noopener">Agendar este serviço</a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-card-top">
+            <h3>Barba</h3>
+            <p class="price"><span>R$</span>30</p>
+          </div>
+          <p class="service-desc">Barba desenhada, toalha quente e acabamento na navalha.</p>
+          <a class="btn btn-outline btn-block whatsapp-btn" data-message="barba" href="#" target="_blank" rel="noopener">Agendar este serviço</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. GALERIA ============ -->
+  <section id="galeria" class="section gallery">
+    <div class="wrap">
+      <p class="eyebrow center">O espaço</p>
+      <h2 class="section-title center">Galeria</h2>
+      <p class="section-subtitle center">
+        Imagens ilustrativas deste projeto de demonstração — substitua pelas fotos reais da sua barbearia.
+      </p>
+
+      <div class="gallery-grid">
+        <figure class="gallery-item reveal g-1">
+          <svg class="icon" width="34" height="34"><use href="#icon-chair"/></svg>
+          <figcaption>Ambiente</figcaption>
+        </figure>
+        <figure class="gallery-item reveal g-2">
+          <svg class="icon" width="34" height="34"><use href="#icon-scissors"/></svg>
+          <figcaption>Estação de corte</figcaption>
+        </figure>
+        <figure class="gallery-item reveal g-3">
+          <svg class="icon" width="34" height="34"><use href="#icon-razor"/></svg>
+          <figcaption>Acabamento na navalha</figcaption>
+        </figure>
+        <figure class="gallery-item reveal g-4">
+          <svg class="icon" width="34" height="34"><use href="#icon-drop"/></svg>
+          <figcaption>Toalha quente</figcaption>
+        </figure>
+        <figure class="gallery-item reveal g-5">
+          <svg class="icon" width="34" height="34"><use href="#icon-clock"/></svg>
+          <figcaption>Área de espera</figcaption>
+        </figure>
+        <figure class="gallery-item reveal g-6">
+          <svg class="icon" width="34" height="34"><use href="#icon-scissors"/></svg>
+          <figcaption>Corte degradê</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="fade-divider" aria-hidden="true"></div>
+
+  <!-- ============ 5. DEPOIMENTOS ============ -->
+  <section class="section testimonials">
+    <div class="wrap">
+      <p class="eyebrow center">Depoimentos</p>
+      <h2 class="section-title center">O que os clientes diriam</h2>
+      <p class="disclaimer center">
+        ⚠️ A Barbearia Black é um projeto fictício criado para fins de demonstração. Os depoimentos abaixo são <strong>exemplos ilustrativos</strong> e não representam clientes reais.
+      </p>
+
+      <div class="testimonials-grid">
+        <article class="testimonial-card reveal">
+          <span class="demo-tag">Depoimento de exemplo</span>
+          <div class="stars" aria-label="Avaliação de exemplo: 5 de 5 estrelas">
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+          </div>
+          <p>“Corte impecável e o cara ainda me deu dica de como manter em casa. Saí de lá com outra cara.”</p>
+          <cite>— Rafael M. <span>(exemplo)</span></cite>
+        </article>
+
+        <article class="testimonial-card reveal">
+          <span class="demo-tag">Depoimento de exemplo</span>
+          <div class="stars" aria-label="Avaliação de exemplo: 5 de 5 estrelas">
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+          </div>
+          <p>“Marquei pelo WhatsApp de manhã e já fui atendido à tarde. Ambiente muito agradável.”</p>
+          <cite>— Diego S. <span>(exemplo)</span></cite>
+        </article>
+
+        <article class="testimonial-card reveal">
+          <span class="demo-tag">Depoimento de exemplo</span>
+          <div class="stars" aria-label="Avaliação de exemplo: 4 de 5 estrelas">
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+            <svg class="icon" width="16" height="16"><use href="#icon-star"/></svg>
+            <svg class="icon icon-muted" width="16" height="16"><use href="#icon-star"/></svg>
+          </div>
+          <p>“Barba alinhada, toalha quente e aquele acabamento na navalha que faz diferença.”</p>
+          <cite>— Thiago A. <span>(exemplo)</span></cite>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. SOBRE ============ -->
+  <section id="sobre" class="section about">
+    <div class="wrap about-inner">
+      <div class="about-visual reveal" aria-hidden="true">
+        <div class="about-frame">
+          <svg class="icon" width="56" height="56"><use href="#icon-scissors"/></svg>
+        </div>
+      </div>
+      <div class="about-copy reveal">
+        <p class="eyebrow">Sobre a barbearia</p>
+        <h2 class="section-title">Um corte é um ritual, não só um serviço</h2>
+        <p>A Barbearia Black nasceu de uma ideia simples: o tempo que você separa pra cuidar de si merece ser bem cuidado também. Aqui, cada cliente senta na cadeira sabendo que vai sair de lá melhor do que entrou — no corte, na barba e no astral.</p>
+        <p>Trabalhamos com técnica, calma e atenção ao detalhe, em um ambiente pensado para ser confortável do início ao fim do atendimento.</p>
+        <ul class="about-tags">
+          <li>Higiene em primeiro lugar</li>
+          <li>Materiais de qualidade</li>
+          <li>Pontualidade com o seu horário</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="fade-divider" aria-hidden="true"></div>
+
+  <!-- ============ 7. FAQ ============ -->
+  <section id="faq" class="section faq">
+    <div class="wrap faq-inner">
+      <p class="eyebrow center">Dúvidas frequentes</p>
+      <h2 class="section-title center">Perguntas &amp; respostas</h2>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Preciso agendar horário antes de ir?
+            <svg class="icon" width="18" height="18"><use href="#icon-chevron"/></svg>
+          </summary>
+          <p>É recomendado agendar pelo WhatsApp para garantir seu horário, principalmente em dias de maior movimento. Encaixes também podem ser possíveis, dependendo da agenda do dia.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Quais formas de pagamento vocês aceitam?
+            <svg class="icon" width="18" height="18"><use href="#icon-chevron"/></svg>
+          </summary>
+          <p>Dinheiro, PIX e cartão de débito ou crédito.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Posso remarcar ou cancelar meu horário?
+            <svg class="icon" width="18" height="18"><use href="#icon-chevron"/></svg>
+          </summary>
+          <p>Sim! Chame no WhatsApp com antecedência que reorganizamos o seu horário sem problema.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Vocês atendem crianças e adolescentes?
+            <svg class="icon" width="18" height="18"><use href="#icon-chevron"/></svg>
+          </summary>
+          <p>Sim, atendemos clientes de todas as idades, com o mesmo cuidado no corte e no atendimento.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Vocês indicam produtos para cuidar do cabelo e da barba em casa?
+            <svg class="icon" width="18" height="18"><use href="#icon-chevron"/></svg>
+          </summary>
+          <p>Sim, durante o próprio atendimento o profissional indica o que faz mais sentido pro seu tipo de cabelo e barba.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. LOCALIZAÇÃO E HORÁRIO ============ -->
+  <section id="local" class="section location">
+    <div class="wrap location-inner">
+      <div class="location-copy reveal">
+        <p class="eyebrow">Onde estamos</p>
+        <h2 class="section-title">Localização &amp; horário</h2>
+
+        <div class="location-block">
+          <svg class="icon" width="20" height="20"><use href="#icon-pin"/></svg>
+          <div>
+            <strong>Rua Exemplo, 123 — Bairro Modelo, Cidade/UF</strong>
+            <span class="muted-note">(endereço de exemplo — atualize com o endereço real)</span>
+          </div>
+        </div>
+
+        <div class="location-block">
+          <svg class="icon" width="20" height="20"><use href="#icon-clock"/></svg>
+          <div>
+            <strong>Horário de funcionamento</strong>
+            <table class="hours-table">
+              <tr><td>Segunda a Sexta</td><td>09h às 20h</td></tr>
+              <tr><td>Sábado</td><td>09h às 18h</td></tr>
+              <tr><td>Domingo</td><td>Fechado</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <a class="btn btn-primary whatsapp-btn" data-message="local" href="#" target="_blank" rel="noopener">
+          <svg class="icon" width="18" height="18"><use href="#icon-whatsapp"/></svg>
+          Chamar no WhatsApp
+        </a>
+      </div>
+
+      <!-- Placeholder de mapa: substitua por um iframe real do Google Maps com o endereço da barbearia. -->
+      <div class="map-placeholder reveal" aria-hidden="true">
+        <svg class="icon" width="36" height="36"><use href="#icon-pin"/></svg>
+        <p>Insira aqui o mapa com o endereço real da barbearia</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9. CTA FINAL ============ -->
+  <section class="cta-final">
+    <div class="wrap cta-final-inner reveal">
+      <h2>Pronto para sair diferente de como entrou?</h2>
+      <p>Marque seu horário agora — é rápido e direto pelo WhatsApp.</p>
+      <a class="btn btn-primary btn-lg whatsapp-btn" data-message="cta_final" href="#" target="_blank" rel="noopener">
+        <svg class="icon" width="20" height="20"><use href="#icon-whatsapp"/></svg>
+        Agendar meu horário
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ 10. RODAPÉ ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <p class="logo">Barbearia <span>Black</span></p>
+      <p>Corte e barba de precisão, com hora marcada.</p>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="#servicos">Serviços</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#local">Localização</a>
+    </nav>
+
+    <div class="footer-social">
+      <a href="#" aria-label="Instagram (exemplo)"><svg class="icon" width="20" height="20"><use href="#icon-instagram"/></svg></a>
+      <a href="#" aria-label="Facebook (exemplo)"><svg class="icon" width="20" height="20"><use href="#icon-facebook"/></svg></a>
+      <a class="whatsapp-btn" data-message="hero" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon" width="20" height="20"><use href="#icon-whatsapp"/></svg></a>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <p>© <span id="year"></span> Barbearia Black. Todos os direitos reservados.</p>
+    <p class="footer-disclaimer">Este é um projeto de demonstração (fictício). Substitua todos os dados de exemplo — endereço, telefone, WhatsApp, imagens e depoimentos — pelas informações reais do seu negócio antes de publicar.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
