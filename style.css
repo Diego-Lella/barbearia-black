@@ -360,14 +360,26 @@ body {
 
 .hero-emblem {
   position: relative;
-  width: min(360px, 80vw);
+  width: min(390px, 82vw);
   aspect-ratio: 1;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 35% 30%, var(--charcoal-2), var(--ink-2) 70%);
-  border: 1px solid var(--line);
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      var(--charcoal-2),
+      var(--ink-2) 68%,
+      var(--ink) 100%
+    );
+
+  border: 1px solid var(--brass-dim);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.03),
+    0 25px 70px rgba(0,0,0,.45);
 }
 
 .fade-rings {
