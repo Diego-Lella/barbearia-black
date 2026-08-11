@@ -384,13 +384,31 @@ body {
 
 .fade-rings {
   position: absolute;
-  inset: 0;
+  inset: 8%;
   border-radius: 50%;
+
   background:
-    repeating-radial-gradient(circle at center, transparent 0 14px, rgba(182,144,90,.16) 14px 15px);
-  mask-image: radial-gradient(circle at center, #000 55%, transparent 78%);
-  -webkit-mask-image: radial-gradient(circle at center, #000 55%, transparent 78%);
-  animation: spin 60s linear infinite;
+    repeating-radial-gradient(
+      circle at center,
+      transparent 0 16px,
+      rgba(139, 30, 45, .18) 16px 17px
+    );
+
+  mask-image:
+    radial-gradient(
+      circle at center,
+      #000 45%,
+      transparent 74%
+    );
+
+  -webkit-mask-image:
+    radial-gradient(
+      circle at center,
+      #000 45%,
+      transparent 74%
+    );
+
+  animation: spin 45s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
