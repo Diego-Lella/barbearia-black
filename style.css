@@ -864,12 +864,20 @@ body {
    CTA FINAL
    ========================================================= */
 .cta-final {
-  padding-block: 90px;
+  padding-block: 110px;
+
   background:
-    radial-gradient(90% 140% at 50% 0%, rgba(182,144,90,.14), transparent 60%),
+    radial-gradient(
+      70% 120% at 50% 0%,
+      rgba(139, 30, 45, .16),
+      transparent 65%
+    ),
     var(--ink-2);
+
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+}.cta-final .btn-primary {
+  min-width: 230px;
 }
 .cta-final-inner { text-align: center; }
 .cta-final h2 {
