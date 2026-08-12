@@ -603,7 +603,26 @@ body {
 }
 .price span { font-size: 15px; margin-right: 2px; }
 
-.service-desc { color: var(--steel); font-size: 14.5px; flex-grow: 1; }
+.service-desc .service-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-benefits li {
+  color: var(--bone-dim);
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.service-benefits li::first-letter {
+  color: var(--brass-light);
+}
 
 /* =========================================================
    GALERIA
