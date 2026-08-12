@@ -526,10 +526,45 @@ body {
   display: grid;
   gap: 22px;
 }
-@media (min-width: 800px) {
-  .services-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
-}
+@media (max-width: 600px) {
 
+  .services-grid {
+    gap: 18px;
+  }
+
+  .service-card {
+    padding: 28px 22px;
+  }
+
+  .service-card-highlight {
+    transform: none;
+  }
+
+  .service-card-top {
+    gap: 8px;
+  }
+
+  .service-card-top h3 {
+    font-size: 20px;
+  }
+
+  .price {
+    font-size: 25px;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .service-benefits {
+    gap: 7px;
+  }
+
+  .service-benefits li {
+    font-size: 13px;
+  }
+}
 .service-card {
   position: relative;
   background: var(--charcoal);
