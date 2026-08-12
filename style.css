@@ -412,7 +412,11 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-.hero-emblem-icon { color: var(--brass-light); }
+.hero-emblem-icon {
+  color: var(--brass-light);
+  filter: drop-shadow(0 8px 20px rgba(139, 30, 45, .35));
+  transform: scale(1.08);
+}
 
 .hero-float-card {
   position: absolute;
