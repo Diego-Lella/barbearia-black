@@ -701,12 +701,6 @@ body {
 .g-5 { background: linear-gradient(155deg, #1f2126, #121214); }
 .g-6 { background: linear-gradient(155deg, #262019, #141110); }
 
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: var(--radius);
-}
 /* =========================================================
    DEPOIMENTOS
    ========================================================= */
