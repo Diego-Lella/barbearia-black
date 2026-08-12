@@ -720,6 +720,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-height: 250px;
 }
 
 .demo-tag {
