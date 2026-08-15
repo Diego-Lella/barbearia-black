@@ -1039,10 +1039,6 @@ body {
 
 @media (max-width: 768px) {
 
-  .hero-visual {
-    background-position: center;
-  }
-
   .gallery-item {
     background-position: center;
   }
