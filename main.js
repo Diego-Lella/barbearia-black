@@ -162,8 +162,7 @@ function applyDemoImages() {
 
   const images = {
 
-    hero:
-      "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1600&q=90",
+    
 
     ambiente:
       "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1200&q=90",
