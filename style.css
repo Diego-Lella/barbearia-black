@@ -984,22 +984,6 @@ body {
    IMAGENS DA BARBEARIA BLACK
    ========================================================= */
 
-/* HERO */
-
-.hero-visual {
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.35),
-      rgba(0, 0, 0, 0.05)
-    ),
-    var(--hero-image);
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 
 /* GALERIA */
 
