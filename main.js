@@ -1,15 +1,9 @@
 /* =========================================================
    BARBEARIA BLACK — main.js
-   Sem backend, sem banco de dados: só interações de front-end.
    ========================================================= */
 
-/* ⚙️ ============ CONFIGURAÇÕES — EDITE AQUI ============ ⚙️
-   1. Troque WHATSAPP_NUMBER pelo número real, no formato:
-      DDI + DDD + número, só dígitos (ex.: 55 11 91234-5678 -> "5511912345678")
-   2. As mensagens abaixo já vêm preenchidas e podem ser editadas livremente.
---------------------------------------------------------- */
 const CONFIG = {
-  WHATSAPP_NUMBER: "5511999999999", // número de exemplo — SUBSTITUA pelo número real
+  WHATSAPP_NUMBER: "5511999999999",
 
   MESSAGES: {
     hero: "Olá! Vim pelo site e quero agendar um horário na Barbearia Black.",
@@ -21,88 +15,250 @@ const CONFIG = {
   }
 };
 
-/* ---------- monta o link do WhatsApp ---------- */
+/* ---------- WhatsApp ---------- */
+
 function buildWhatsAppLink(messageKey) {
-  const text = CONFIG.MESSAGES[messageKey] || CONFIG.MESSAGES.hero;
+  const text =
+    CONFIG.MESSAGES[messageKey] || CONFIG.MESSAGES.hero;
+
   return `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 }
 
 function wireWhatsAppButtons() {
   document.querySelectorAll(".whatsapp-btn").forEach((btn) => {
     const key = btn.dataset.message || "hero";
-    btn.setAttribute("href", buildWhatsAppLink(key));
+
+    btn.setAttribute(
+      "href",
+      buildWhatsAppLink(key)
+    );
   });
 }
 
-/* ---------- header muda de estilo ao rolar ---------- */
+/* ---------- Header ---------- */
+
 function wireHeaderScroll() {
   const header = document.getElementById("siteHeader");
+
   if (!header) return;
-  const toggle = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+
+  const toggle = () => {
+    header.classList.toggle(
+      "is-scrolled",
+      window.scrollY > 8
+    );
+  };
+
   toggle();
-  window.addEventListener("scroll", toggle, { passive: true });
+
+  window.addEventListener(
+    "scroll",
+    toggle,
+    { passive: true }
+  );
 }
 
-/* ---------- menu mobile ---------- */
+/* ---------- Menu mobile ---------- */
+
 function wireMobileNav() {
   const toggle = document.getElementById("navToggle");
   const nav = document.getElementById("mainNav");
+
   if (!toggle || !nav) return;
 
   const closeNav = () => {
     nav.classList.remove("is-open");
-    toggle.setAttribute("aria-expanded", "false");
+
+    toggle.setAttribute(
+      "aria-expanded",
+      "false"
+    );
   };
 
   toggle.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("is-open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
+    const isOpen =
+      nav.classList.toggle("is-open");
+
+    toggle.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
   });
 
-  nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeNav));
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeNav);
+  });
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeNav();
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeNav();
+    }
   });
 }
 
-/* ---------- animações leves ao rolar a página ---------- */
+/* ---------- Animações ---------- */
+
 function wireRevealOnScroll() {
-  const items = document.querySelectorAll(".reveal");
+  const items =
+    document.querySelectorAll(".reveal");
+
   if (!items.length) return;
 
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReduced) {
-    items.forEach((el) => el.classList.add("is-visible"));
+  if (
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches
+  ) {
+    items.forEach((el) => {
+      el.classList.add("is-visible");
+    });
+
     return;
   }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-  );
+  const observer =
+    new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(
+              "is-visible"
+            );
 
-  items.forEach((el) => observer.observe(el));
+            observer.unobserve(
+              entry.target
+            );
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -40px 0px"
+      }
+    );
+
+  items.forEach((el) => {
+    observer.observe(el);
+  });
 }
 
-/* ---------- ano atual no rodapé ---------- */
+/* ---------- Ano ---------- */
+
 function setFooterYear() {
-  const el = document.getElementById("year");
-  if (el) el.textContent = new Date().getFullYear();
+  const el =
+    document.getElementById("year");
+
+  if (el) {
+    el.textContent =
+      new Date().getFullYear();
+  }
 }
 
-/* ---------- init ---------- */
-document.addEventListener("DOMContentLoaded", () => {
-  wireWhatsAppButtons();
-  wireHeaderScroll();
-  wireMobileNav();
-  wireRevealOnScroll();
-  setFooterYear();
-});
+/* =========================================================
+   IMAGENS PROFISSIONAIS
+   ========================================================= */
+
+function applyDemoImages() {
+
+  const images = {
+
+    hero:
+      "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1600&q=90",
+
+    ambiente:
+      "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1200&q=90",
+
+    corte:
+      "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=90",
+
+    navalha:
+      "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1200&q=90",
+
+    barba:
+      "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1200&q=90",
+
+    espera:
+      "https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=1200&q=90",
+
+    degrade:
+      "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=90"
+  };
+
+
+  /* HERO */
+
+  const hero =
+    document.querySelector(".hero-visual");
+
+  if (hero) {
+    hero.style.setProperty(
+      "--hero-image",
+      `url("${images.hero}")`
+    );
+  }
+
+
+  /* GALERIA */
+
+  const galleryImages = [
+    images.ambiente,
+    images.corte,
+    images.navalha,
+    images.barba,
+    images.espera,
+    images.degrade
+  ];
+
+  document
+    .querySelectorAll(".gallery-item")
+    .forEach((item, index) => {
+
+      if (galleryImages[index]) {
+
+        item.style.setProperty(
+          "--gallery-image",
+          `url("${galleryImages[index]}")`
+        );
+
+      }
+
+    });
+
+
+  /* SOBRE */
+
+  const aboutVisual =
+    document.querySelector(".about-visual");
+
+  if (aboutVisual) {
+
+    aboutVisual.style.setProperty(
+      "--about-image",
+      `url("${images.corte}")`
+    );
+
+  }
+
+}
+
+
+/* ---------- Inicialização ---------- */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+    wireWhatsAppButtons();
+
+    wireHeaderScroll();
+
+    wireMobileNav();
+
+    wireRevealOnScroll();
+
+    setFooterYear();
+
+    applyDemoImages();
+
+  }
+);
