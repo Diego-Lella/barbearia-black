@@ -980,3 +980,91 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }
 }
+/* =========================================================
+   IMAGENS DA BARBEARIA BLACK
+   ========================================================= */
+
+/* HERO */
+
+.hero-visual {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.05)
+    ),
+    var(--hero-image);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* GALERIA */
+
+.gallery-item {
+  position: relative;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.08),
+      rgba(0, 0, 0, 0.08)
+    ),
+    var(--gallery-image);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+
+/* Efeito premium ao passar o mouse */
+
+.gallery-item {
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+  filter: brightness(1.08);
+}
+
+
+/* SOBRE */
+
+.about-visual {
+  background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.12),
+      rgba(0, 0, 0, 0.12)
+    ),
+    var(--about-image);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+
+  .hero-visual {
+    background-position: center;
+  }
+
+  .gallery-item {
+    background-position: center;
+  }
+
+  .about-visual {
+    background-position: center;
+  }
+
+   }
